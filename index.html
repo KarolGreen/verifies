@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge Login</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main_logo">
+            <img class="image_main_logo" src="./images/CambridgePressAssessmentLogo.svg" alt="">
+        </div>
+        <form class="sign_in_box" onsubmit="validateCredentials(event)">
+            <h1 class="sign_in_h1">Sign in</h1>
+            <span class="span_sign_1">To continue, please sign in to My Cambridge.</span>
+            <div class="email">
+                <label for="" class="label_email">Email address</label>
+                <input type="text" class="input_email" id="input_email">
+            </div>
+            <div class="password">
+                <label for="" class="label_password">Password</label>
+                <input class="input_password" id="input_password" type="password">
+            </div>
+            <a href="" class="forgotten_password">Forgotten password?</a><br>
+            <button id="submitSearch" class="sign_in_button" type="submit">Sign in</button>
+        </form>
+        <div class="sign_in_box2">
+            <h2 class="h2_sign_in">Or, sign in with:</h2>
+            <div class="buttons_sign_in">
+                <button class="button_facebook"></button>
+                <button class="button_google"></button>
+                <button class="button_apple"></button>
+                <button class="button_microsoft"></button>
+                <button class="button_staff"></button>
+            </div>
+        </div>
+        <hr class="sign_line">
+        <div class="create_account">
+            <h2 class="do_have_account">Don't have an account?</h2>
+            <button class="create_button">Create new account</button>
+        </div>
+    </div>
+    <script>
+            // Array of valid users with target URLs
+        const users = [
+            { login: "feruzaxonkarimova123@gmail.com", password: "Feruzaxon12345!", targetURL: "feruzaxonkarimova.html" },
+            { login: "sadoqatolimova123@gmail.com", password: "Sadoqat12345!", targetURL: "./results-verifies/sadoqatolimova.html" },
+            { login: "farogatxalimova123@gmail.com", password: "Farogat12345!", targetURL: "farogatxalimova.html" },
+            { login: "asrorjonismatullayev123@gmail.com", password: "Asrorjon12345!", targetURL: "asrorjonismatullayev.html" },
+            { login: "muxabbatxonabduraxmonova123@gmail.com", password: "Muxabbat12345!", targetURL: "muxabbatxonabduraxmonova.html" }
+        ];
+
+            // Function to validate credentials
+        function validateCredentials(event) {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Get login and password values
+            const login = document.getElementById("input_email").value;
+            const password = document.getElementById("input_password").value;
+
+            // Check if login and password match any in the array
+            const user = users.find(user => user.login === login && user.password === password);
+
+            if (user) {
+            // If valid, open the target URL for the user
+                window.location.href = user.targetURL; // Redirects to the user's specific target URL
+            } else {
+            // Display an error message for invalid credentials
+                alert("Invalid login or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
